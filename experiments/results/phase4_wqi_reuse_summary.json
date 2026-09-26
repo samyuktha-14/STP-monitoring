@@ -1,0 +1,17 @@
+{
+  "dataset_total_days": 1461,
+  "mean_wqi_score": 79.52,
+  "min_wqi_score": 69.9,
+  "max_wqi_score": 84.7,
+  "wqi_grade_distribution": {
+    "B": 1390,
+    "C": 71
+  },
+  "reuse_suitability_percentages": {
+    "Toilet Flushing": 0.0,
+    "Gardening & Landscaping": 82.8,
+    "HVAC Cooling Towers": 0.0,
+    "Construction & Dust Control": 100.0,
+    "Environmental Discharge": 0.0
+  }
+}

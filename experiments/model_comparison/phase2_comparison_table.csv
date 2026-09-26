@@ -1,0 +1,28 @@
+Target,Model,Tuned_Parameters,Train_MAE,Test_MAE,Test_RMSE,Test_MAPE_%,Test_R2,MAE_Improvement_%,Overfit_Gap (Train R2 - Test R2),Rank
+BOD,Baseline (Training Mean),N/A,2.1032,2.0901,2.6471,17.84,-0.0,0.0,0.0,99
+BOD,Linear Regression,Default,2.1011,2.0835,2.6427,17.84,0.0033,0.31,0.0006,1
+BOD,ElasticNet,"{'alpha': 1.0, 'l1_ratio': 0.5}",2.1032,2.0901,2.6471,17.84,-0.0,0.0,0.0,2
+BOD,Ridge Regression,{'alpha': 100.0},2.101,2.0908,2.6473,17.87,-0.0001,-0.03,0.0024,3
+BOD,Gradient Boosting Regressor,"{'learning_rate': 0.01, 'max_depth': 4, 'n_estimators': 100, 'subsample': 1.0}",2.0105,2.0933,2.6595,17.87,-0.0094,-0.16,0.0909,4
+BOD,Random Forest Regressor,"{'max_depth': 3, 'min_samples_leaf': 2, 'min_samples_split': 2, 'n_estimators': 200}",2.0364,2.0993,2.6589,17.92,-0.009,-0.44,0.0648,5
+BOD,XGBoost Regressor,"{'learning_rate': 0.01, 'max_depth': 4, 'n_estimators': 100, 'reg_alpha': 1.0, 'reg_lambda': 1.0, 'subsample': 1.0}",2.0138,2.1005,2.6577,17.9,-0.0081,-0.5,0.0824,6
+BOD,Support Vector Regressor (SVR),"{'C': 0.5, 'epsilon': 0.2, 'gamma': 'scale'}",2.0385,2.1527,2.6985,18.36,-0.0393,-3.0,0.0716,7
+BOD,Multi-Layer Perceptron (MLP),"{'alpha': 0.001, 'hidden_layer_sizes': (32,), 'learning_rate_init': 0.005}",2.0581,2.1637,2.7015,18.38,-0.0416,-3.52,0.0639,8
+COD,Baseline (Training Mean),N/A,6.1259,6.1485,7.7676,12.14,-0.0001,0.0,0.0,99
+COD,Linear Regression,Default,6.1225,6.1437,7.7876,12.15,-0.0053,0.08,0.0071,1
+COD,ElasticNet,"{'alpha': 10.0, 'l1_ratio': 0.2}",6.1259,6.1485,7.7676,12.14,-0.0001,0.0,0.0001,2
+COD,XGBoost Regressor,"{'learning_rate': 0.01, 'max_depth': 2, 'n_estimators': 50, 'reg_alpha': 1.0, 'reg_lambda': 5.0, 'subsample': 0.8}",6.0928,6.1541,7.7836,12.16,-0.0042,-0.09,0.0159,3
+COD,Ridge Regression,{'alpha': 100.0},6.1213,6.1609,7.7936,12.17,-0.0068,-0.2,0.0081,4
+COD,Gradient Boosting Regressor,"{'learning_rate': 0.01, 'max_depth': 2, 'n_estimators': 50, 'subsample': 0.8}",6.0916,6.171,7.7932,12.2,-0.0067,-0.37,0.0199,5
+COD,Support Vector Regressor (SVR),"{'C': 0.5, 'epsilon': 0.2, 'gamma': 'auto'}",6.0203,6.2028,7.8375,12.24,-0.0182,-0.88,0.0345,6
+COD,Random Forest Regressor,"{'max_depth': 3, 'min_samples_leaf': 2, 'min_samples_split': 2, 'n_estimators': 50}",5.9834,6.2048,7.8521,12.27,-0.022,-0.92,0.0688,7
+COD,Multi-Layer Perceptron (MLP),"{'alpha': 0.1, 'hidden_layer_sizes': (32, 16), 'learning_rate_init': 0.01}",6.1297,6.429,7.9933,12.59,-0.0591,-4.56,0.0426,8
+TSS,Baseline (Training Mean),N/A,1.8452,1.7007,2.1625,20.09,-0.0017,0.0,0.0,99
+TSS,ElasticNet,"{'alpha': 1.0, 'l1_ratio': 0.2}",1.8452,1.7007,2.1625,20.09,-0.0017,0.0,0.0017,1
+TSS,Gradient Boosting Regressor,"{'learning_rate': 0.01, 'max_depth': 2, 'n_estimators': 100, 'subsample': 0.8}",1.8215,1.7018,2.1661,20.05,-0.005,-0.07,0.033,2
+TSS,Ridge Regression,{'alpha': 100.0},1.8443,1.7019,2.164,20.09,-0.003,-0.07,0.0041,3
+TSS,Linear Regression,Default,1.8432,1.703,2.1632,20.09,-0.0023,-0.14,0.0044,4
+TSS,XGBoost Regressor,"{'learning_rate': 0.01, 'max_depth': 3, 'n_estimators': 100, 'reg_alpha': 0.0, 'reg_lambda': 1.0, 'subsample': 1.0}",1.805,1.706,2.1656,20.06,-0.0045,-0.31,0.05,5
+TSS,Support Vector Regressor (SVR),"{'C': 0.5, 'epsilon': 0.01, 'gamma': 'scale'}",1.8107,1.7096,2.1698,20.05,-0.0084,-0.53,0.0288,6
+TSS,Random Forest Regressor,"{'max_depth': 3, 'min_samples_leaf': 2, 'min_samples_split': 10, 'n_estimators': 100}",1.7932,1.7121,2.1744,20.1,-0.0127,-0.67,0.0703,7
+TSS,Multi-Layer Perceptron (MLP),"{'alpha': 0.01, 'hidden_layer_sizes': (64, 32), 'learning_rate_init': 0.01}",1.8282,1.7195,2.1705,20.14,-0.0091,-1.11,0.0304,8

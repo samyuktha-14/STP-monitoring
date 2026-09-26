@@ -1,0 +1,318 @@
+{
+  "1. Normal Plant Operation": {
+    "is_anomaly": false,
+    "overall_status": "NORMAL",
+    "anomaly_type": "NORMAL",
+    "severity_level": "NORMAL",
+    "root_cause_diagnosis": "Water quality parameters are within normal operational limits.",
+    "actionable_recommendation": "Maintain standard aeration, clarifier recycling (RAS), and continuous filtration.",
+    "layer_results": {
+      "cpcb_regulatory": {
+        "overall_cpcb_status": "COMPLIANT",
+        "is_compliant": true,
+        "violations": [],
+        "warnings": [],
+        "passed_parameters": [
+          "pH",
+          "Turbidity",
+          "TDS",
+          "DO"
+        ],
+        "total_breaches": 0
+      },
+      "statistical_univariate": {
+        "is_statistically_abnormal": false,
+        "anomaly_count": 0,
+        "anomalies": [],
+        "z_scores": {
+          "Treated pH_z_score": 0.08,
+          "Treated TDS (mg/L)_z_score": -0.09,
+          "Treated Turbidity (NTU)_z_score": -0.28,
+          "Treated DO (mg/L)_z_score": -0.09
+        }
+      },
+      "isolation_forest_ml": {
+        "is_ml_anomaly": false,
+        "anomaly_score": 0.323,
+        "raw_decision_score": -0.4291,
+        "classification": "NORMAL"
+      }
+    },
+    "sensor_readings": {
+      "ph": 7.12,
+      "tds_mg_l": 420.0,
+      "turbidity_ntu": 3.2,
+      "estimated_do_mg_l": 2.67
+    }
+  },
+  "2. Clarifier Sludge Carryover (High Turbidity)": {
+    "is_anomaly": true,
+    "overall_status": "WARNING",
+    "anomaly_type": "PROCESS_UPSET",
+    "severity_level": "WARNING",
+    "root_cause_diagnosis": "Secondary Clarifier Sludge Carryover / Filter Breakthrough (Turbidity: 8.5 NTU)",
+    "actionable_recommendation": "1. Inspect clarifier sludge blanket level. 2. Backwash sand/carbon filters. 3. Adjust RAS (Return Activated Sludge) recycle rate.",
+    "layer_results": {
+      "cpcb_regulatory": {
+        "overall_cpcb_status": "COMPLIANT",
+        "is_compliant": true,
+        "violations": [],
+        "warnings": [],
+        "passed_parameters": [
+          "pH",
+          "Turbidity",
+          "TDS",
+          "DO"
+        ],
+        "total_breaches": 0
+      },
+      "statistical_univariate": {
+        "is_statistically_abnormal": true,
+        "anomaly_count": 1,
+        "anomalies": [
+          {
+            "parameter": "Treated Turbidity (NTU)",
+            "value": 8.5,
+            "z_score": 3.33,
+            "type": "STATISTICAL_OUTLIER",
+            "direction": "HIGH",
+            "severity": "MEDIUM",
+            "detail": "Treated Turbidity (NTU) deviated by +3.33 standard deviations from mean (3.60)."
+          }
+        ],
+        "z_scores": {
+          "Treated pH_z_score": -0.19,
+          "Treated TDS (mg/L)_z_score": 0.08,
+          "Treated Turbidity (NTU)_z_score": 3.33,
+          "Treated DO (mg/L)_z_score": -0.39
+        }
+      },
+      "isolation_forest_ml": {
+        "is_ml_anomaly": true,
+        "anomaly_score": 0.926,
+        "raw_decision_score": -0.6702,
+        "classification": "ANOMALY"
+      }
+    },
+    "sensor_readings": {
+      "ph": 7.08,
+      "tds_mg_l": 430.0,
+      "turbidity_ntu": 8.5,
+      "estimated_do_mg_l": 2.55
+    }
+  },
+  "3. High Salinity / TDS Shock Load": {
+    "is_anomaly": true,
+    "overall_status": "WARNING",
+    "anomaly_type": "PROCESS_UPSET",
+    "severity_level": "WARNING",
+    "root_cause_diagnosis": "Inlet Salinity / High TDS Shock Load (680 mg/L)",
+    "actionable_recommendation": "1. Check raw sewage inlet for chemical dumping or water softener regeneration discharge. 2. Divert to equalization tank if TDS > 1500.",
+    "layer_results": {
+      "cpcb_regulatory": {
+        "overall_cpcb_status": "COMPLIANT",
+        "is_compliant": true,
+        "violations": [],
+        "warnings": [],
+        "passed_parameters": [
+          "pH",
+          "Turbidity",
+          "TDS",
+          "DO"
+        ],
+        "total_breaches": 0
+      },
+      "statistical_univariate": {
+        "is_statistically_abnormal": true,
+        "anomaly_count": 1,
+        "anomalies": [
+          {
+            "parameter": "Treated TDS (mg/L)",
+            "value": 680.0,
+            "z_score": 4.27,
+            "type": "STATISTICAL_OUTLIER",
+            "direction": "HIGH",
+            "severity": "HIGH",
+            "detail": "Treated TDS (mg/L) deviated by +4.27 standard deviations from mean (425.30)."
+          }
+        ],
+        "z_scores": {
+          "Treated pH_z_score": 0.29,
+          "Treated TDS (mg/L)_z_score": 4.27,
+          "Treated Turbidity (NTU)_z_score": 0.13,
+          "Treated DO (mg/L)_z_score": -0.14
+        }
+      },
+      "isolation_forest_ml": {
+        "is_ml_anomaly": false,
+        "anomaly_score": 0.527,
+        "raw_decision_score": -0.5107,
+        "classification": "NORMAL"
+      }
+    },
+    "sensor_readings": {
+      "ph": 7.15,
+      "tds_mg_l": 680.0,
+      "turbidity_ntu": 3.8,
+      "estimated_do_mg_l": 2.65
+    }
+  },
+  "4. CPCB Statutory Discharge Breach (Severe)": {
+    "is_anomaly": true,
+    "overall_status": "CRITICAL",
+    "anomaly_type": "PROCESS_UPSET",
+    "severity_level": "CRITICAL",
+    "root_cause_diagnosis": "Secondary Clarifier Sludge Carryover / Filter Breakthrough (Turbidity: 15.0 NTU)",
+    "actionable_recommendation": "1. Inspect clarifier sludge blanket level. 2. Backwash sand/carbon filters. 3. Adjust RAS (Return Activated Sludge) recycle rate.",
+    "layer_results": {
+      "cpcb_regulatory": {
+        "overall_cpcb_status": "NON_COMPLIANT",
+        "is_compliant": false,
+        "violations": [
+          {
+            "parameter": "pH",
+            "value": 9.2,
+            "limit": "6.5 - 8.5",
+            "severity": "CRITICAL",
+            "message": "Critical pH violation (9.20). Discharge illegal."
+          },
+          {
+            "parameter": "Turbidity",
+            "value": 15.0,
+            "limit": "\u2264 10.0 NTU (CPCB Standard)",
+            "severity": "WARNING",
+            "message": "Turbidity elevated (15.00 NTU). Suspended matter / clarifier issue."
+          },
+          {
+            "parameter": "TDS",
+            "value": 2250.0,
+            "limit": "\u2264 2100 mg/L (Discharge Ceiling)",
+            "severity": "CRITICAL",
+            "message": "TDS exceeded statutory maximum (2250 mg/L)."
+          }
+        ],
+        "warnings": [],
+        "passed_parameters": [
+          "DO"
+        ],
+        "total_breaches": 3
+      },
+      "statistical_univariate": {
+        "is_statistically_abnormal": true,
+        "anomaly_count": 3,
+        "anomalies": [
+          {
+            "parameter": "Treated pH",
+            "value": 9.2,
+            "z_score": 14.33,
+            "type": "STATISTICAL_OUTLIER",
+            "direction": "HIGH",
+            "severity": "HIGH",
+            "detail": "Treated pH deviated by +14.33 standard deviations from mean (7.11)."
+          },
+          {
+            "parameter": "Treated TDS (mg/L)",
+            "value": 2250.0,
+            "z_score": 30.56,
+            "type": "STATISTICAL_OUTLIER",
+            "direction": "HIGH",
+            "severity": "HIGH",
+            "detail": "Treated TDS (mg/L) deviated by +30.56 standard deviations from mean (425.30)."
+          },
+          {
+            "parameter": "Treated Turbidity (NTU)",
+            "value": 15.0,
+            "z_score": 7.75,
+            "type": "STATISTICAL_OUTLIER",
+            "direction": "HIGH",
+            "severity": "HIGH",
+            "detail": "Treated Turbidity (NTU) deviated by +7.75 standard deviations from mean (3.60)."
+          }
+        ],
+        "z_scores": {
+          "Treated pH_z_score": 14.33,
+          "Treated TDS (mg/L)_z_score": 30.56,
+          "Treated Turbidity (NTU)_z_score": 7.75,
+          "Treated DO (mg/L)_z_score": -1.38
+        }
+      },
+      "isolation_forest_ml": {
+        "is_ml_anomaly": true,
+        "anomaly_score": 1.0,
+        "raw_decision_score": -0.7236,
+        "classification": "ANOMALY"
+      }
+    },
+    "sensor_readings": {
+      "ph": 9.2,
+      "tds_mg_l": 2250.0,
+      "turbidity_ntu": 15.0,
+      "estimated_do_mg_l": 2.15
+    }
+  },
+  "5. Sudden Rate-of-Change Sensor Spike": {
+    "is_anomaly": true,
+    "overall_status": "LOW",
+    "anomaly_type": "UNUSUAL_PROCESS_DEVIATION",
+    "severity_level": "LOW",
+    "root_cause_diagnosis": "Subtle multi-sensor multivariate deviation detected by Isolation Forest.",
+    "actionable_recommendation": "Monitor plant parameters for continued drift over next 2 operational cycles.",
+    "layer_results": {
+      "cpcb_regulatory": {
+        "overall_cpcb_status": "COMPLIANT",
+        "is_compliant": true,
+        "violations": [],
+        "warnings": [],
+        "passed_parameters": [
+          "pH",
+          "Turbidity",
+          "TDS",
+          "DO"
+        ],
+        "total_breaches": 0
+      },
+      "statistical_univariate": {
+        "is_statistically_abnormal": true,
+        "anomaly_count": 2,
+        "anomalies": [
+          {
+            "parameter": "Treated pH",
+            "value": 7.8,
+            "z_score": 4.74,
+            "type": "STATISTICAL_OUTLIER",
+            "direction": "HIGH",
+            "severity": "HIGH",
+            "detail": "Treated pH deviated by +4.74 standard deviations from mean (7.11)."
+          },
+          {
+            "parameter": "Treated pH",
+            "value": 7.8,
+            "previous_value": 7.1,
+            "delta": 0.7,
+            "type": "RATE_OF_CHANGE_SPIKE",
+            "severity": "HIGH",
+            "detail": "Sudden jump of 0.70 (allowed max: 0.5). Possible sensor glitch or severe hydraulic surge."
+          }
+        ],
+        "z_scores": {
+          "Treated pH_z_score": 4.74,
+          "Treated TDS (mg/L)_z_score": -0.01,
+          "Treated Turbidity (NTU)_z_score": -0.14,
+          "Treated DO (mg/L)_z_score": -0.31
+        }
+      },
+      "isolation_forest_ml": {
+        "is_ml_anomaly": false,
+        "anomaly_score": 0.629,
+        "raw_decision_score": -0.5517,
+        "classification": "NORMAL"
+      }
+    },
+    "sensor_readings": {
+      "ph": 7.8,
+      "tds_mg_l": 425.0,
+      "turbidity_ntu": 3.4,
+      "estimated_do_mg_l": 2.58
+    }
+  }
+}

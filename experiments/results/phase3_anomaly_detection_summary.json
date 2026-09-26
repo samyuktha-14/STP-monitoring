@@ -1,0 +1,20 @@
+{
+  "total_samples": 1461,
+  "anomalies_detected": 52,
+  "anomaly_rate_pct": 3.56,
+  "model_type": "IsolationForest (n_estimators=150, contamination=0.035)",
+  "features": [
+    "Treated pH",
+    "Treated TDS (mg/L)",
+    "Treated Turbidity (NTU)",
+    "Formula_DO",
+    "Turb_TDS_Interaction"
+  ],
+  "sample_anomaly_dates": [
+    "2022-11-18",
+    "2022-11-27",
+    "2023-01-09",
+    "2023-01-13",
+    "2023-02-21"
+  ]
+}

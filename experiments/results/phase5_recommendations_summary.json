@@ -1,0 +1,456 @@
+{
+  "1. Normal Plant Operation": {
+    "plant_health_summary": {
+      "operational_status": "OPTIMAL_OPERATION",
+      "status_color": "#10B981",
+      "headline": "[NORMAL] All Units Operating in Optimal Range. Maintain Standard Routine.",
+      "wqi_score": 80.7,
+      "wqi_grade": "B",
+      "anomaly_type": "NORMAL"
+    },
+    "live_and_estimated_parameters": {
+      "pH": 7.12,
+      "TDS": 420.0,
+      "Turbidity": 3.2,
+      "DO": 2.67,
+      "TSS": 9.35,
+      "BOD": 12.89,
+      "COD": 52.88
+    },
+    "trend_analysis": {
+      "window_days": 7,
+      "parameter_trends": {
+        "pH": {
+          "parameter": "pH",
+          "current_value": 7.18,
+          "start_window_value": 7.34,
+          "direction": "IMPROVING",
+          "trend_icon": "[STABILIZING_TO_NEUTRAL]",
+          "slope_per_day": -0.005,
+          "pct_change_window": -2.2,
+          "volatility_cv_pct": 1.4,
+          "r_squared": 0.011,
+          "projected_3day_value": 7.16,
+          "early_warning": null
+        },
+        "TDS": {
+          "parameter": "TDS",
+          "current_value": 509.0,
+          "start_window_value": 478.0,
+          "direction": "STABLE",
+          "trend_icon": "[STEADY]",
+          "slope_per_day": 3.071,
+          "pct_change_window": 6.5,
+          "volatility_cv_pct": 2.7,
+          "r_squared": 0.211,
+          "projected_3day_value": 518.21,
+          "early_warning": null
+        },
+        "Turbidity": {
+          "parameter": "Turbidity",
+          "current_value": 5.1,
+          "start_window_value": 3.4,
+          "direction": "DEGRADING",
+          "trend_icon": "[RISING]",
+          "slope_per_day": 0.204,
+          "pct_change_window": 50.0,
+          "volatility_cv_pct": 24.7,
+          "r_squared": 0.258,
+          "projected_3day_value": 5.71,
+          "early_warning": "Warning: Turbidity is trending upward (+0.20 NTU/day). Projected to reach 5.7 NTU in 3 days."
+        },
+        "DO": {
+          "parameter": "DO",
+          "current_value": 2.73,
+          "start_window_value": 1.78,
+          "direction": "STABLE",
+          "trend_icon": "[STEADY]",
+          "slope_per_day": 0.066,
+          "pct_change_window": 53.4,
+          "volatility_cv_pct": 16.5,
+          "r_squared": 0.084,
+          "projected_3day_value": 2.93,
+          "early_warning": null
+        }
+      },
+      "active_early_warnings": [
+        "Warning: Turbidity is trending upward (+0.20 NTU/day). Projected to reach 5.7 NTU in 3 days."
+      ],
+      "has_degradation_trend": true
+    },
+    "reuse_recommendation": "Suitable for Landscape Irrigation, Gardening, & Construction (Not for Flushing)",
+    "prioritized_action_checklist": {
+      "priority_1_immediate": [],
+      "priority_2_short_term": [],
+      "priority_3_routine_maintenance": [
+        {
+          "action": "Clean and Recalibrate Live Sensor Probes",
+          "detail": "Perform weekly sensor wipe with distilled water and check 2-point calibration buffer for pH and optical lens for turbidity.",
+          "equipment": "Physical In-line Sensor Probes (pH, TDS, Turbidity)",
+          "target": "Maintain \u00b12% measurement precision"
+        },
+        {
+          "action": "Log Daily Sludge Volume Index (SVI 30-min Settling Test)",
+          "detail": "Take 1-liter aeration basin sample in a graduated cylinder to verify good biological floc settling characteristics (Ideal SVI: 80 - 120 mL/g).",
+          "equipment": "On-site Operator Testing Kit",
+          "target": "Early biological bulking detection"
+        }
+      ]
+    },
+    "affected_equipment_units": [
+      "All Standard Process Units"
+    ],
+    "root_cause_diagnosis": "Water quality parameters are within normal operational limits."
+  },
+  "2. Clarifier Sludge Carryover & Rising Turbidity": {
+    "plant_health_summary": {
+      "operational_status": "CRITICAL_INTERVENTION_REQUIRED",
+      "status_color": "#EF4444",
+      "headline": "[CRITICAL] Immediate Plant Action Needed: Inspect Clarifier Sludge Blanket & Trigger Sand Filter Backwash",
+      "wqi_score": 73.1,
+      "wqi_grade": "C",
+      "anomaly_type": "PROCESS_UPSET"
+    },
+    "live_and_estimated_parameters": {
+      "pH": 7.05,
+      "TDS": 440.0,
+      "Turbidity": 7.8,
+      "DO": 2.57,
+      "TSS": 9.35,
+      "BOD": 13.36,
+      "COD": 53.72
+    },
+    "trend_analysis": {
+      "window_days": 7,
+      "parameter_trends": {
+        "pH": {
+          "parameter": "pH",
+          "current_value": 7.05,
+          "start_window_value": 7.1,
+          "direction": "STABLE",
+          "trend_icon": "[STEADY]",
+          "slope_per_day": -0.01,
+          "pct_change_window": -0.7,
+          "volatility_cv_pct": 0.3,
+          "r_squared": 0.93,
+          "projected_3day_value": 7.02,
+          "early_warning": null
+        },
+        "TDS": {
+          "parameter": "TDS",
+          "current_value": 440.0,
+          "start_window_value": 420.0,
+          "direction": "STABLE",
+          "trend_icon": "[STEADY]",
+          "slope_per_day": 3.536,
+          "pct_change_window": 4.8,
+          "volatility_cv_pct": 1.7,
+          "r_squared": 0.984,
+          "projected_3day_value": 450.61,
+          "early_warning": null
+        },
+        "Turbidity": {
+          "parameter": "Turbidity",
+          "current_value": 7.8,
+          "start_window_value": 2.8,
+          "direction": "DEGRADING",
+          "trend_icon": "[RISING]",
+          "slope_per_day": 0.857,
+          "pct_change_window": 178.6,
+          "volatility_cv_pct": 34.6,
+          "r_squared": 0.984,
+          "projected_3day_value": 10.37,
+          "early_warning": "Warning: Turbidity is trending upward (+0.86 NTU/day). Projected to reach 10.4 NTU in 3 days."
+        },
+        "DO": {
+          "parameter": "DO",
+          "current_value": 2.5,
+          "start_window_value": 2.8,
+          "direction": "STABLE",
+          "trend_icon": "[STEADY]",
+          "slope_per_day": -0.05,
+          "pct_change_window": -10.7,
+          "volatility_cv_pct": 3.9,
+          "r_squared": 0.942,
+          "projected_3day_value": 2.35,
+          "early_warning": null
+        }
+      },
+      "active_early_warnings": [
+        "Warning: Turbidity is trending upward (+0.86 NTU/day). Projected to reach 10.4 NTU in 3 days."
+      ],
+      "has_degradation_trend": true
+    },
+    "reuse_recommendation": "Restricted Industrial / Construction & Dust Suppression Only",
+    "prioritized_action_checklist": {
+      "priority_1_immediate": [
+        {
+          "action": "Inspect Clarifier Sludge Blanket & Trigger Sand Filter Backwash",
+          "detail": "Elevated turbidity (7.8 NTU) indicates solid carryover from secondary clarifier settling zone.",
+          "equipment": "Secondary Clarifier & Dual Media Sand Filter",
+          "target": "Lower turbidity to < 3.0 NTU"
+        }
+      ],
+      "priority_2_short_term": [
+        {
+          "action": "Adjust Return Activated Sludge (RAS) Recycle Rate",
+          "detail": "Increase RAS pump speed to evacuate settled sludge before it rises and overflows the effluent weir.",
+          "equipment": "RAS Pumps 1 & 2",
+          "target": "Maintain sludge blanket depth at bottom 1/3 of clarifier"
+        }
+      ],
+      "priority_3_routine_maintenance": [
+        {
+          "action": "Clean Clarifier V-Notch Effluent Weirs",
+          "detail": "Scrape algae and scum buildup from clarifier peripheral overflow launders.",
+          "equipment": "Clarifier Launder Weirs",
+          "target": "Prevent localized flow channeling"
+        },
+        {
+          "action": "Clean and Recalibrate Live Sensor Probes",
+          "detail": "Perform weekly sensor wipe with distilled water and check 2-point calibration buffer for pH and optical lens for turbidity.",
+          "equipment": "Physical In-line Sensor Probes (pH, TDS, Turbidity)",
+          "target": "Maintain \u00b12% measurement precision"
+        },
+        {
+          "action": "Log Daily Sludge Volume Index (SVI 30-min Settling Test)",
+          "detail": "Take 1-liter aeration basin sample in a graduated cylinder to verify good biological floc settling characteristics (Ideal SVI: 80 - 120 mL/g).",
+          "equipment": "On-site Operator Testing Kit",
+          "target": "Early biological bulking detection"
+        }
+      ]
+    },
+    "affected_equipment_units": [
+      "Secondary Clarifier & Sludge Recycling"
+    ],
+    "root_cause_diagnosis": "Secondary Clarifier Sludge Carryover / Filter Breakthrough (Turbidity: 7.8 NTU)"
+  },
+  "3. Aeration Basin Failure / Septic Odor Risk": {
+    "plant_health_summary": {
+      "operational_status": "PROCESS_ADJUSTMENT_RECOMMENDED",
+      "status_color": "#F59E0B",
+      "headline": "[ADVISORY] Process Adjustment: Perform Scheduled Filter Backwashing",
+      "wqi_score": 68.2,
+      "wqi_grade": "C",
+      "anomaly_type": "SENSOR_FAULT"
+    },
+    "live_and_estimated_parameters": {
+      "pH": 6.45,
+      "TDS": 510.0,
+      "Turbidity": 5.5,
+      "DO": 2.56,
+      "TSS": 9.35,
+      "BOD": 12.51,
+      "COD": 53.49
+    },
+    "trend_analysis": {
+      "window_days": 7,
+      "parameter_trends": {
+        "pH": {
+          "parameter": "pH",
+          "current_value": 6.45,
+          "start_window_value": 7.1,
+          "direction": "DEGRADING",
+          "trend_icon": "[DRIFTING_FROM_NEUTRAL]",
+          "slope_per_day": -0.116,
+          "pct_change_window": -9.2,
+          "volatility_cv_pct": 3.5,
+          "r_squared": 0.987,
+          "projected_3day_value": 6.1,
+          "early_warning": null
+        },
+        "TDS": {
+          "parameter": "TDS",
+          "current_value": 510.0,
+          "start_window_value": 420.0,
+          "direction": "DEGRADING",
+          "trend_icon": "[SALINITY_RISING]",
+          "slope_per_day": 16.071,
+          "pct_change_window": 21.4,
+          "volatility_cv_pct": 6.9,
+          "r_squared": 0.985,
+          "projected_3day_value": 558.21,
+          "early_warning": null
+        },
+        "Turbidity": {
+          "parameter": "Turbidity",
+          "current_value": 5.5,
+          "start_window_value": 3.0,
+          "direction": "DEGRADING",
+          "trend_icon": "[RISING]",
+          "slope_per_day": 0.432,
+          "pct_change_window": 83.3,
+          "volatility_cv_pct": 20.4,
+          "r_squared": 0.995,
+          "projected_3day_value": 6.8,
+          "early_warning": "Warning: Turbidity is trending upward (+0.43 NTU/day). Projected to reach 6.8 NTU in 3 days."
+        },
+        "DO": {
+          "parameter": "DO",
+          "current_value": 1.1,
+          "start_window_value": 2.8,
+          "direction": "DEGRADING",
+          "trend_icon": "[DEPLETING]",
+          "slope_per_day": -0.279,
+          "pct_change_window": -60.7,
+          "volatility_cv_pct": 30.9,
+          "r_squared": 0.973,
+          "projected_3day_value": 0.26,
+          "early_warning": "Critical Alert: Dissolved Oxygen is dropping (-0.28 mg/L/day). Aeration basin failure risk in ~3 days (0.26 mg/L)."
+        }
+      },
+      "active_early_warnings": [
+        "Warning: Turbidity is trending upward (+0.43 NTU/day). Projected to reach 6.8 NTU in 3 days.",
+        "Critical Alert: Dissolved Oxygen is dropping (-0.28 mg/L/day). Aeration basin failure risk in ~3 days (0.26 mg/L)."
+      ],
+      "has_degradation_trend": true
+    },
+    "reuse_recommendation": "Restricted Industrial / Construction & Dust Suppression Only",
+    "prioritized_action_checklist": {
+      "priority_1_immediate": [],
+      "priority_2_short_term": [
+        {
+          "action": "Perform Scheduled Filter Backwashing",
+          "detail": "Turbidity (5.5 NTU) approaching upper threshold. Initiate backwash cycle with air scouring on Dual Media Filter (DMF).",
+          "equipment": "Dual Media Filter (DMF) & Activated Carbon Filter (ACF)",
+          "target": "Restore clean filter differential pressure"
+        },
+        {
+          "action": "Adjust pH Correction Dosing Pump (Add Alkali/Lime)",
+          "detail": "Effluent pH (6.45) violates CPCB discharge compliance (6.5 - 8.5). High/low pH severely inhibits biological bacteria.",
+          "equipment": "Chemical Dosing Tank & Metering Pump",
+          "target": "Restore neutral pH (7.0 - 7.5)"
+        }
+      ],
+      "priority_3_routine_maintenance": [
+        {
+          "action": "Clean and Recalibrate Live Sensor Probes",
+          "detail": "Perform weekly sensor wipe with distilled water and check 2-point calibration buffer for pH and optical lens for turbidity.",
+          "equipment": "Physical In-line Sensor Probes (pH, TDS, Turbidity)",
+          "target": "Maintain \u00b12% measurement precision"
+        },
+        {
+          "action": "Log Daily Sludge Volume Index (SVI 30-min Settling Test)",
+          "detail": "Take 1-liter aeration basin sample in a graduated cylinder to verify good biological floc settling characteristics (Ideal SVI: 80 - 120 mL/g).",
+          "equipment": "On-site Operator Testing Kit",
+          "target": "Early biological bulking detection"
+        }
+      ]
+    },
+    "affected_equipment_units": [
+      "Chemical Neutralization Dosing System",
+      "Tertiary Sand / Carbon Filter"
+    ],
+    "root_cause_diagnosis": "Isolated Sensor Anomaly on Treated pH (Treated pH deviated by -4.51 standard deviations from mean (7.11).)"
+  },
+  "4. High TDS / Softener Salinity Shock": {
+    "plant_health_summary": {
+      "operational_status": "PROCESS_ADJUSTMENT_RECOMMENDED",
+      "status_color": "#F59E0B",
+      "headline": "[ADVISORY] Process Adjustment: Check Raw Sewage Inlet for Chemical / Softener Brine Dumping",
+      "wqi_score": 75.2,
+      "wqi_grade": "B",
+      "anomaly_type": "PROCESS_UPSET"
+    },
+    "live_and_estimated_parameters": {
+      "pH": 7.2,
+      "TDS": 780.0,
+      "Turbidity": 3.6,
+      "DO": 2.64,
+      "TSS": 9.35,
+      "BOD": 13.38,
+      "COD": 54.19
+    },
+    "trend_analysis": {
+      "window_days": 7,
+      "parameter_trends": {
+        "pH": {
+          "parameter": "pH",
+          "current_value": 7.18,
+          "start_window_value": 7.34,
+          "direction": "IMPROVING",
+          "trend_icon": "[STABILIZING_TO_NEUTRAL]",
+          "slope_per_day": -0.005,
+          "pct_change_window": -2.2,
+          "volatility_cv_pct": 1.4,
+          "r_squared": 0.011,
+          "projected_3day_value": 7.16,
+          "early_warning": null
+        },
+        "TDS": {
+          "parameter": "TDS",
+          "current_value": 509.0,
+          "start_window_value": 478.0,
+          "direction": "STABLE",
+          "trend_icon": "[STEADY]",
+          "slope_per_day": 3.071,
+          "pct_change_window": 6.5,
+          "volatility_cv_pct": 2.7,
+          "r_squared": 0.211,
+          "projected_3day_value": 518.21,
+          "early_warning": null
+        },
+        "Turbidity": {
+          "parameter": "Turbidity",
+          "current_value": 5.1,
+          "start_window_value": 3.4,
+          "direction": "DEGRADING",
+          "trend_icon": "[RISING]",
+          "slope_per_day": 0.204,
+          "pct_change_window": 50.0,
+          "volatility_cv_pct": 24.7,
+          "r_squared": 0.258,
+          "projected_3day_value": 5.71,
+          "early_warning": "Warning: Turbidity is trending upward (+0.20 NTU/day). Projected to reach 5.7 NTU in 3 days."
+        },
+        "DO": {
+          "parameter": "DO",
+          "current_value": 2.73,
+          "start_window_value": 1.78,
+          "direction": "STABLE",
+          "trend_icon": "[STEADY]",
+          "slope_per_day": 0.066,
+          "pct_change_window": 53.4,
+          "volatility_cv_pct": 16.5,
+          "r_squared": 0.084,
+          "projected_3day_value": 2.93,
+          "early_warning": null
+        }
+      },
+      "active_early_warnings": [
+        "Warning: Turbidity is trending upward (+0.20 NTU/day). Projected to reach 5.7 NTU in 3 days."
+      ],
+      "has_degradation_trend": true
+    },
+    "reuse_recommendation": "Suitable for Landscape Irrigation, Gardening, & Construction (Not for Flushing)",
+    "prioritized_action_checklist": {
+      "priority_1_immediate": [],
+      "priority_2_short_term": [
+        {
+          "action": "Check Raw Sewage Inlet for Chemical / Softener Brine Dumping",
+          "detail": "TDS elevated (780 mg/L). Investigate domestic water softener regeneration discharges or commercial kitchen grease.",
+          "equipment": "Raw Sewage Inlet Chamber & Bar Screens",
+          "target": "Ensure adequate mixing in Equalization Basin"
+        }
+      ],
+      "priority_3_routine_maintenance": [
+        {
+          "action": "Clean and Recalibrate Live Sensor Probes",
+          "detail": "Perform weekly sensor wipe with distilled water and check 2-point calibration buffer for pH and optical lens for turbidity.",
+          "equipment": "Physical In-line Sensor Probes (pH, TDS, Turbidity)",
+          "target": "Maintain \u00b12% measurement precision"
+        },
+        {
+          "action": "Log Daily Sludge Volume Index (SVI 30-min Settling Test)",
+          "detail": "Take 1-liter aeration basin sample in a graduated cylinder to verify good biological floc settling characteristics (Ideal SVI: 80 - 120 mL/g).",
+          "equipment": "On-site Operator Testing Kit",
+          "target": "Early biological bulking detection"
+        }
+      ]
+    },
+    "affected_equipment_units": [
+      "Equalization Tank & Influent Screen"
+    ],
+    "root_cause_diagnosis": "Inlet Salinity / High TDS Shock Load (780 mg/L)"
+  }
+}
