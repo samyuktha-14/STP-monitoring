@@ -76,37 +76,37 @@
           <!-- pH -->
           <div class="control-group">
             <div class="control-label">
-              <span>Treated pH</span>
+              <span>Treated pH <span class="badge badge-measured">MEASURED</span></span>
               <span class="control-val" id="val-ph">7.10</span>
             </div>
             <input type="range" id="slider-ph" min="5.50" max="9.50" step="0.05" value="7.10">
-            <div class="control-range-hint">Safe: 6.5 – 8.5 pH · Glass Electrode Sensor</div>
+            <div class="control-range-hint">Safe: 6.5 – 8.5 pH · Physical Sensor</div>
           </div>
 
           <!-- Turbidity -->
           <div class="control-group">
             <div class="control-label">
-              <span>Treated Turbidity (NTU)</span>
+              <span>Treated Turbidity (NTU) <span class="badge badge-measured">MEASURED</span></span>
               <span class="control-val" id="val-turbidity">3.5 NTU</span>
             </div>
             <input type="range" id="slider-turbidity" min="0.5" max="15.0" step="0.1" value="3.5">
-            <div class="control-range-hint">Safe: &lt; 5.0 NTU · Optical Nephelometric Sensor</div>
+            <div class="control-range-hint">Safe: &lt; 5.0 NTU · Physical Optical Sensor</div>
           </div>
 
           <!-- TDS -->
           <div class="control-group">
             <div class="control-label">
-              <span>Treated TDS (mg/L)</span>
+              <span>Treated TDS (mg/L) <span class="badge badge-measured">MEASURED</span></span>
               <span class="control-val" id="val-tds">425 mg/L</span>
             </div>
             <input type="range" id="slider-tds" min="200" max="1800" step="10" value="425">
-            <div class="control-range-hint">Safe: &lt; 800 mg/L · EC / Conductivity Probe</div>
+            <div class="control-range-hint">Safe: &lt; 800 mg/L · Physical EC Probe</div>
           </div>
 
           <!-- Temperature -->
           <div class="control-group">
             <div class="control-label">
-              <span>Water Temperature (°C)</span>
+              <span>Water Temperature (°C) <span class="badge badge-measured">MEASURED</span></span>
               <span class="control-val" id="val-temp">25.0 °C</span>
             </div>
             <input type="range" id="slider-temp" min="15.0" max="35.0" step="0.5" value="25.0">
@@ -166,19 +166,19 @@
               </div>
             </div>
 
-            <!-- TSS (ML) -->
-            <div class="soft-card">
+            <!-- Estimated TSS (Empirical Formula) -->
+            <div class="soft-card highlight-card-tss">
               <div class="soft-card-header">
-                <span class="param-title">TSS (Suspended Solids)</span>
-                <span class="badge badge-ml">TUNED ML</span>
+                <span class="param-title">Estimated TSS</span>
+                <span class="badge badge-estimated">ESTIMATED</span>
               </div>
               <div class="soft-card-val">
-                <span class="val-num" id="est-tss">9.35</span>
-                <span class="val-unit">mg/L</span>
+                <span class="val-num" id="est-tss">9.2</span>
+                <span class="val-unit" id="est-tss-unit">mg/L</span>
               </div>
               <div class="soft-card-meta">
-                <span>CPCB Limit: &le; 20 mg/L</span>
-                <span class="meta-formula">ElasticNet Regressor</span>
+                <span id="est-tss-note">Estimated from turbidity</span>
+                <span class="meta-formula" title="Estimated TSS derived from the validated turbidity–TSS relationship for this STP dataset.">TSS = 1.15 &times; Turb + 5.22</span>
               </div>
             </div>
 

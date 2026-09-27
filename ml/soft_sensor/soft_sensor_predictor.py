@@ -13,6 +13,7 @@ import numpy as np
 from typing import Dict, Any, Optional
 
 from ml.soft_sensor.physics_do_estimator import PhysicsDOEstimator
+from ml.soft_sensor.tss_estimator import TurbidityTSSEstimator, estimate_tss
 
 MODEL_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "saved_models"))
 
@@ -20,18 +21,20 @@ class STPSoftSensorPredictor:
     """
     Production Predictor for Smart STP Monitor:
     - DO calculated strictly via First-Principles Physical Formula.
-    - BOD, COD, TSS estimated via tuned ML models taking Live Sensors + Formula DO.
+    - TSS calculated strictly via validated Turbidity-TSS Empirical Relationship.
+    - BOD, COD estimated via tuned ML models taking Live Sensors + Formula DO.
     """
     
     def __init__(self):
         self.do_estimator = PhysicsDOEstimator()
+        self.tss_estimator = TurbidityTSSEstimator()
         
         # Load scaler and models
         scaler_path = os.path.join(MODEL_DIR, "ml_feature_scaler.pkl")
         self.scaler = joblib.load(scaler_path) if os.path.exists(scaler_path) else None
         
         self.models = {}
-        for target in ["bod", "cod", "tss"]:
+        for target in ["bod", "cod"]:
             model_path = os.path.join(MODEL_DIR, f"{target}_best_model.pkl")
             if os.path.exists(model_path):
                 self.models[target.upper()] = joblib.load(model_path)
@@ -53,7 +56,11 @@ class STPSoftSensorPredictor:
         do_val = do_res["do_estimated_mg_l"]
         do_sat = do_res["do_saturation_mg_l"]
         
-        # 2. Build feature vector for ML models
+        # 2. TSS via VALIDATED TURBIDITY EMPIRICAL FORMULA
+        tss_res = self.tss_estimator.estimate(turbidity_ntu)
+        tss_val = tss_res["tss"] if tss_res["status"] == "valid" else 9.4
+        
+        # 3. Build feature vector for ML models (BOD, COD)
         # Features: [Treated_pH, Treated_TDS, Treated_Turbidity, Formula_DO, DO_Deficit, pH_Deviation, Turb_TDS_Interaction]
         do_deficit = max(0.0, do_sat - do_val)
         ph_dev = abs(ph - 7.0)
@@ -74,11 +81,23 @@ class STPSoftSensorPredictor:
                 "model_type": "ENGINEERING_FORMULA_ONLY",
                 "formula": "Benson-Krause Saturation & Physicochemical Transfer Model",
                 "status": do_res["status"]
+            },
+            "TSS": {
+                "value_mg_l": tss_res["tss"],
+                "display_val": tss_res["tss_display"],
+                "unit": "mg/L",
+                "model_type": "EMPIRICAL_FORMULA",
+                "source": tss_res["tss_source"],
+                "formula": tss_res["formula"],
+                "status": tss_res["status"],
+                "reason": tss_res.get("reason", ""),
+                "is_estimated": True,
+                "description": tss_res["description"]
             }
         }
         
-        # 3. Predict BOD, COD, TSS via tuned ML models
-        for target in ["TSS", "BOD", "COD"]:
+        # 4. Predict BOD, COD via tuned ML models
+        for target in ["BOD", "COD"]:
             if target in self.models:
                 pred_val = float(self.models[target].predict(scaled_features)[0])
                 # Ensure non-negative bounds

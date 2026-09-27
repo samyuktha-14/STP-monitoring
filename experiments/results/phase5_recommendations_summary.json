@@ -13,7 +13,7 @@
       "TDS": 420.0,
       "Turbidity": 3.2,
       "DO": 2.67,
-      "TSS": 9.35,
+      "TSS": 8.9,
       "BOD": 12.89,
       "COD": 52.88
     },
@@ -116,7 +116,7 @@
       "TDS": 440.0,
       "Turbidity": 7.8,
       "DO": 2.57,
-      "TSS": 9.35,
+      "TSS": 14.19,
       "BOD": 13.36,
       "COD": 53.72
     },
@@ -239,7 +239,7 @@
       "TDS": 510.0,
       "Turbidity": 5.5,
       "DO": 2.56,
-      "TSS": 9.35,
+      "TSS": 11.54,
       "BOD": 12.51,
       "COD": 53.49
     },
@@ -338,8 +338,8 @@
       ]
     },
     "affected_equipment_units": [
-      "Chemical Neutralization Dosing System",
-      "Tertiary Sand / Carbon Filter"
+      "Tertiary Sand / Carbon Filter",
+      "Chemical Neutralization Dosing System"
     ],
     "root_cause_diagnosis": "Isolated Sensor Anomaly on Treated pH (Treated pH deviated by -4.51 standard deviations from mean (7.11).)"
   },
@@ -357,7 +357,7 @@
       "TDS": 780.0,
       "Turbidity": 3.6,
       "DO": 2.64,
-      "TSS": 9.35,
+      "TSS": 9.36,
       "BOD": 13.38,
       "COD": 54.19
     },

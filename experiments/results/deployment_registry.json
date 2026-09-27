@@ -60,25 +60,16 @@
     "model_path": "ml/soft_sensor/saved_models/cod_best_model.pkl"
   },
   "TSS": {
-    "best_model_name": "ElasticNet",
+    "model_name": "TurbidityTSSEstimator (Validated Empirical Relationship)",
     "target_col": "Treated TSS (mg/L)",
-    "status": "DEPLOYED_ML_MODEL",
-    "method": "TUNED_MACHINE_LEARNING",
-    "tuned_hyperparameters": "{'alpha': 1.0, 'l1_ratio': 0.2}",
-    "features_used": [
-      "Treated_pH",
-      "Treated_TDS",
-      "Treated_Turbidity",
-      "Formula_DO",
-      "DO_Deficit",
-      "pH_Deviation",
-      "Turb_TDS_Interaction"
+    "status": "DEPLOYED",
+    "method": "EMPIRICAL_FORMULA",
+    "formula": "TSS = 1.15 * Turbidity + 5.22",
+    "inputs_required": [
+      "Treated Turbidity (NTU)"
     ],
-    "test_mae": 1.7007,
-    "test_rmse": 2.1625,
-    "test_mape_pct": 20.09,
-    "test_r2": -0.0017,
-    "mae_improvement_over_baseline_pct": 0.0,
-    "model_path": "ml/soft_sensor/saved_models/tss_best_model.pkl"
+    "source": "estimated_from_turbidity",
+    "scientific_disclaimer": "Estimated TSS derived from the validated turbidity–TSS relationship for this STP dataset.",
+    "reason": "Replaced non-viable ML model with validated empirical proxy."
   }
 }

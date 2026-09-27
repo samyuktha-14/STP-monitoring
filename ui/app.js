@@ -137,7 +137,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Soft Sensor Cards
     document.getElementById('est-do').textContent = est.DO.toFixed(2);
-    document.getElementById('est-tss').textContent = est.TSS.toFixed(1);
+    
+    // Estimated TSS (Derived from Turbidity formula)
+    const tssElem = document.getElementById('est-tss');
+    const tssNoteElem = document.getElementById('est-tss-note');
+    if (est.TSS !== null && est.TSS !== undefined && !isNaN(est.TSS)) {
+      tssElem.textContent = typeof est.TSS === 'number' ? est.TSS.toFixed(1) : est.TSS;
+      if (tssNoteElem) tssNoteElem.textContent = 'Estimated from turbidity';
+    } else {
+      tssElem.textContent = 'Unavailable';
+      if (tssNoteElem) tssNoteElem.textContent = 'Turbidity reading unavailable';
+    }
+
     document.getElementById('est-bod').textContent = est.BOD.toFixed(1);
     document.getElementById('est-cod').textContent = est.COD.toFixed(1);
 
